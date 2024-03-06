@@ -1,3 +1,5 @@
+import { menus } from './menus';
+
 export default {
   exportStatic: {},
   nodeModulesTransform: {
@@ -24,7 +26,7 @@ export default {
   manifest: {},
   hash: true,
   alias: {
-    encodeHooks: `${process.cwd()}/packages/hooks/src/index.ts`,
+    sunnyHooks: `${process.cwd()}/packages/hooks/src/index.ts`,
   },
   resolve: {
     includes: ['docs', 'packages/hooks/src'],
@@ -52,6 +54,6 @@ export default {
         path: '/guide',
       },
     ],
-    // '/hooks': menus,
+    '/hooks': menus,
   },
 };
