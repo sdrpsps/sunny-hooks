@@ -15,7 +15,8 @@
     "antfu",
     "dumi",
     "navs",
-    "trubo"
+    "trubo",
+    "localstorage"
   ],
   "ignoreWords": [],
   "import": []
