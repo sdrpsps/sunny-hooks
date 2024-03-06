@@ -1,0 +1,22 @@
+{
+  "version": "0.2",
+  "ignorePaths": [
+    ".git",
+    ".gitignore",
+    ".vscode",
+    "dist",
+    "package.json",
+    "pnpm-lock.yaml"
+  ],
+  "dictionaryDefinitions": [],
+  "dictionaries": [],
+  "words": [
+    "alifd",
+    "antfu",
+    "dumi",
+    "navs",
+    "trubo"
+  ],
+  "ignoreWords": [],
+  "import": []
+}
