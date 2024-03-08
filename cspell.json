@@ -14,9 +14,10 @@
     "alifd",
     "antfu",
     "dumi",
+    "gulpfile",
+    "localstorage",
     "navs",
-    "trubo",
-    "localstorage"
+    "trubo"
   ],
   "ignoreWords": [],
   "import": []

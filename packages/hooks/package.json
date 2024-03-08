@@ -13,8 +13,11 @@
   "types": "./lib/inedx.d.ts",
   "files": [
     "dist",
+    "lib",
     "es",
-    "lib"
+    "metadata.json",
+    "package.json",
+    "README.md"
   ],
   "engines": {
     "node": ">=8.0.0"
