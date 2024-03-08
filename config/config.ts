@@ -6,6 +6,7 @@ export default {
     type: 'none',
     exclude: [],
   },
+  publicPath: '/sunny-hooks/',
   history: {
     type: 'hash',
   },

@@ -1,17 +1,16 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 const common = require('../../gulpfile');
 const gulp = require('gulp');
-const fs = require('fs');
 const fse = require('fs-extra');
 const fg = require('fast-glob');
 const gm = require('gray-matter');
 
 // 读取 markdown 生成 hooks 说明
 async function genDesc(markdownPath) {
-  if (!fs.existsSync(markdownPath)) {
+  if (!fse.existsSync(markdownPath)) {
     return;
   }
-  const markdown = fs.readFileSync(markdownPath, 'utf8');
+  const markdown = fse.readFileSync(markdownPath, 'utf8');
   const { content } = gm(markdown);
 
   let description = (content.replace(/\r\n/g, '\n').match(/# \w+[\s\n]+(.+?)(?:, |\. |\n|\.\n)/m) || [])[1] || '';
@@ -61,4 +60,5 @@ gulp.task('metadata', async () => {
   await fse.writeJSON('./metadata.json', metadata, { spaces: 2 });
 });
 
+// exports.default = gulp.series(common.default);
 exports.default = gulp.series(common.default, 'metadata');

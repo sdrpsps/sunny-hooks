@@ -2,11 +2,13 @@
 const gulp = require('gulp');
 const babel = require('gulp-babel');
 const ts = require('gulp-typescript');
-const del = require('del');
+const fse = require('fs-extra');
 
 // 清理上一次打包的产物
 gulp.task('clean', async () => {
-  await del(['es/**', 'lib/**', 'dist/**']);
+  ['es', 'lib', 'dist'].forEach((path) => {
+    fse.removeSync(path);
+  });
 });
 
 // // 编译 esm, ts -> esm -> babel -> dist
@@ -41,4 +43,5 @@ gulp.task('copy-readme', async () => {
   await gulp.src('../../README.md').pipe(gulp.dest('../../packages/hooks'));
 });
 
+// exports.default = gulp.series('clean');
 exports.default = gulp.series('clean', 'es', 'cjs', 'declaration', 'copy-readme');
