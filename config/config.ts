@@ -22,7 +22,7 @@ export default {
   ],
   mode: 'site',
   title: 'Sunny React Hooks',
-  logo: '/logo.png',
+  logo: '/sunny-hooks/logo.png',
   dynamicImport: {},
   manifest: {},
   hash: true,

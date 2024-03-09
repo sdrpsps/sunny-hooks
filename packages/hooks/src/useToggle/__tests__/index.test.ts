@@ -1,6 +1,8 @@
 import { renderHook, act } from '@testing-library/react';
 import useToggle from '..';
 
+const setUp = <T, U>(defaultValue?: T, reverseValue?: U) => renderHook(() => useToggle(defaultValue, reverseValue));
+
 const callHookToggle = (hook: any) => {
   act(() => {
     hook.result.current[1].toggle();
@@ -9,30 +11,32 @@ const callHookToggle = (hook: any) => {
 
 describe('useToggle', () => {
   it('test on init', () => {
-    const hook = renderHook(() => useToggle());
-    expect(hook.result.current[0]).toBeFalsy();
+    const { result } = setUp();
+    expect(result.current[0]).toBeFalsy();
   });
 
   it('test on methods', () => {
-    const hook = renderHook(() => useToggle('Hello'));
-    expect(hook.result.current[0]).toBe('Hello');
+    const hook = setUp('Hello');
+    const { result } = hook;
+    expect(result.current[0]).toBe('Hello');
     callHookToggle(hook);
-    expect(hook.result.current[0]).toBeFalsy();
-    act(() => hook.result.current[1].setLeft());
-    expect(hook.result.current[0]).toBe('Hello');
-    act(() => hook.result.current[1].setRight());
-    expect(hook.result.current[0]).toBeFalsy();
+    expect(result.current[0]).toBeFalsy();
+    act(() => result.current[1].setLeft());
+    expect(result.current[0]).toBe('Hello');
+    act(() => result.current[1].setRight());
+    expect(result.current[0]).toBeFalsy();
   });
 
   it('test on set', () => {
-    const hook = renderHook(() => useToggle('Hello', 'World'));
+    const hook = setUp('Hello', 'World');
+    const { result } = hook;
     callHookToggle(hook);
-    expect(hook.result.current[0]).toBe('World');
+    expect(result.current[0]).toBe('World');
     callHookToggle(hook);
-    expect(hook.result.current[0]).toBe('Hello');
-    act(() => hook.result.current[1].set('World'));
-    expect(hook.result.current[0]).toBe('World');
-    act(() => hook.result.current[1].set('Hello'));
-    expect(hook.result.current[0]).toBe('Hello');
+    expect(result.current[0]).toBe('Hello');
+    act(() => result.current[1].set('World'));
+    expect(result.current[0]).toBe('World');
+    act(() => result.current[1].set('Hello'));
+    expect(result.current[0]).toBe('Hello');
   });
 });
