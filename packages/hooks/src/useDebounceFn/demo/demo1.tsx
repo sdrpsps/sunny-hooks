@@ -5,7 +5,7 @@
 
 import React from 'react';
 import { useState } from 'react';
-import useDebounceFn from '..';
+import { useDebounceFn } from 'sunnyHooks';
 
 export default () => {
   const [count, setCount] = useState(0);

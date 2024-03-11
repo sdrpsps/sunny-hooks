@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import useDebounce from '..';
+import { useDebounce } from 'sunnyHooks';
 
 export default () => {
   const [value, setValue] = useState<string>();
