@@ -1,11 +1,11 @@
 export const menus = [
   {
     title: '状态',
-    children: ['useToggle', 'useBoolean', 'useDebounce'],
+    children: ['useToggle', 'useBoolean', 'useDebounce', 'useThrottle'],
   },
   {
     title: 'Effect',
-    children: ['useDebounceFn'],
+    children: ['useDebounceFn', 'useThrottleFn'],
   },
   {
     title: '其它',
