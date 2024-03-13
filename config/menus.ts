@@ -9,6 +9,6 @@ export const menus = [
   },
   {
     title: '其它',
-    children: ['useLatest'],
+    children: ['useUnmount', 'useLatest'],
   },
 ];
